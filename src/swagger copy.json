@@ -1,0 +1,58 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Desafio Complementar",
+    "description": "Desafio Complementar Chapter II",
+    "version": "1.0.0",
+    "contact": {
+      "email": "l.servo@hotmail.com"
+    }
+  },
+  "paths": {
+    "/users": {
+      "get": {
+        "summary": "Retorna todos os usuários.",
+        "description": "Somente usuário ```admin``` pode acessar.",
+        "parameters": {
+          "name": "user_id",
+          "in": "path",
+          "required": "true",
+          "description": "Parameter description in CommonMark or HTML.",
+          "schema": {
+            "type": "string",
+            "format": "$uuid",
+            "minimum": "1"
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A json array of users objects, with all information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An error message, with information about it",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
